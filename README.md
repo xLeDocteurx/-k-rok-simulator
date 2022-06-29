@@ -1,6 +1,6 @@
 # pok-rok-simulator
 
-PokRok (pronounced /рок-rok/ in mongolian) is a golang based "Pierre" simulator
+PokRok (pronounced /рок-rok/, means "rock" in mongolian) is a golang based "Pierre" simulator
 
 ## How to run ?
 
