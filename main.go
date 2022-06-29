@@ -9,7 +9,7 @@ import (
     "github.com/faiface/beep/speaker"
 )
 
-const PATH = "./assets"
+const PATH = "./audio-assets"
 const MIN_WAIT_IN_SECONDS = 5
 const MAX_WAIT_IN_SECONDS = 30
 
