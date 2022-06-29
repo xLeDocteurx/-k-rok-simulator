@@ -5,7 +5,7 @@ import (
 )
 
 func NewAudioFile(path string, name string) AudioFile {
-	return AudioFile{path+name}
+	return AudioFile{path+"/"+name}
 }
 type AudioFile struct {
 	Fullpath string
