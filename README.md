@@ -14,6 +14,8 @@ go run *.go
 
 ## What if I want to Pierrsonalise this app ?
 
+Put your stuff in the audio-assets directory
+
 ## What if I want to be a hundred Pierrcent more Pierre than I am ?
 
 ```bash
