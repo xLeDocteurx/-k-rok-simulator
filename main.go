@@ -44,13 +44,12 @@ func playSomethingFromFilesList() {
     } 
     log.Println(format.SampleRate, format.SampleRate.N(time.Second/10))
     done := make(chan bool)
-    log.Println("1")
     speaker.Play(streamer, beep.Callback(func () {
         done <- true
-    // streamer.Close()
+        // streamer.Close()
     }))
     <-done
-    time.Sleep(time.Second * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
+    time.Sleep(time.Millisecond * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
     playSomethingFromFilesList()
 	// defer speaker.Close()
 }
