@@ -11,10 +11,8 @@ import (
 )
 
 const PATH = "./audio-assets"
-// const MIN_WAIT_IN_SECONDS = 5
-const MIN_WAIT_IN_SECONDS = 1
-// const MAX_WAIT_IN_SECONDS = 30
-const MAX_WAIT_IN_SECONDS = 3
+const MIN_WAIT_IN_SECONDS = 30
+const MAX_WAIT_IN_SECONDS = 300
 
 var audioFiles = []AudioFile{}
 
@@ -30,36 +28,29 @@ func main() {
 
     log.Println("START")
     speaker.Init(44100, 4410)
-
     playSomethingFromFilesList()
     log.Println("END")
 }
 
 func playSomethingFromFilesList() {
-    log.Println("long before the storm")
     audioFile := audioFiles[RandomIntBetween(0, len(audioFiles) - 1)]
     f, err := os.Open(audioFile.Fullpath)
     if err != nil {
         log.Fatal(err)
     }
-    // log.Println("2")
     streamer, format, _ := wav.Decode(f)
     if err != nil {
         log.Fatal(err)
     } 
-    // log.Println("3")
     log.Println(format.SampleRate, format.SampleRate.N(time.Second/10))
-    log.Println("------")
     done := make(chan bool)
-    log.Println("before the storm")
+    log.Println("1")
     speaker.Play(streamer, beep.Callback(func () {
         done <- true
+    // streamer.Close()
     }))
     <-done
-    streamer.Close()
-    log.Println("TICK")
     time.Sleep(time.Second * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
-    log.Println("TOCK")
     playSomethingFromFilesList()
-	defer speaker.Close()
+	// defer speaker.Close()
 }
