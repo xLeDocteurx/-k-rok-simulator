@@ -30,7 +30,9 @@ func main() {
     }
 
 	for {
-		playFile(audioFiles[RandomIntBetween(0, len(audioFiles))])
+        file := audioFiles[RandomIntBetween(0, len(audioFiles))]
+        log.Println(Stringify(file))
+		playFile(file)
 		time.Sleep(time.Second * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
 	}
 
@@ -48,6 +50,31 @@ func playFile(audioFile AudioFile) {
 	defer streamer.Close()
     speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
     speaker.Play(streamer)
-    // // looping
-    // select {}
+    // looping
+    select {}
 }
+
+
+
+// package main
+// import (
+//     "os"
+//     "time"
+//     "github.com/faiface/beep/wav"
+//     "github.com/faiface/beep/speaker"
+// )
+// func main() {
+//     // open file
+//     // underscore mean we are ignoring error
+//     f, _ := os.Open("./audio-assets/kick.wav")
+//     // decoding mp3 file
+//     // 3 outputs
+//     // stream , format and error
+//     streamer, format, _ := wav.Decode(f)
+//     // activate speakers
+//     speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
+//     // play
+//     speaker.Play(streamer)
+//     // looping
+//     select {}
+// }
