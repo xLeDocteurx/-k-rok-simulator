@@ -5,9 +5,11 @@ import (
 )
 
 func NewAudioFile(path string, name string) AudioFile {
-	return AudioFile{path+"/"+name}
+	return AudioFile{path, name, path+"/"+name}
 }
 type AudioFile struct {
+	path string
+	name string
 	Fullpath string
 }
 
