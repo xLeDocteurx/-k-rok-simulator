@@ -11,8 +11,8 @@ import (
 )
 
 const PATH = "./audio-assets"
-const MIN_WAIT_IN_SECONDS = 30
-const MAX_WAIT_IN_SECONDS = 300
+const MIN_WAIT_IN_SECONDS = 2
+const MAX_WAIT_IN_SECONDS = 4
 
 var audioFiles = []AudioFile{}
 
@@ -49,7 +49,7 @@ func playSomethingFromFilesList() {
         // streamer.Close()
     }))
     <-done
-    time.Sleep(time.Millisecond * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
+    time.Sleep(time.Second * time.Duration(RandomIntBetween(MIN_WAIT_IN_SECONDS, MAX_WAIT_IN_SECONDS)))
     playSomethingFromFilesList()
 	// defer speaker.Close()
 }
