@@ -9,7 +9,14 @@ With your feet
 ## How to run this program ?
 
 ```bash
+go mod tidy // Only the first time, dependencies stuff
 go run *.go
+```
+
+## How to build this program ?
+
+```bash
+???
 ```
 
 ## What if I want to Pierrsonalise this app ?
