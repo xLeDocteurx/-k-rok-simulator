@@ -118,12 +118,7 @@ func main() {
         }
     }()
 
-
 	mainWindow.ShowAndRun()
-	// mainWindow.Show()
-	// fyneApp.Run()
-
-	// Executed after app exit
     log.Println("App is exiting... Very much")
 }
 
